@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:;" />
+  <title>Task Nest</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="card" id="card">
+    <!-- header -->
+    <header class="header">
+      <div class="brand">
+        <svg class="logo" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 21V11" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <path d="M12 12C12 7.5 8.5 5 4 5c0 4.5 3 7 8 7Z" fill="currentColor"/>
+          <path d="M12 10c0-3.8 3-6 7-6 0 3.8-2.6 6-7 6Z" fill="currentColor" opacity=".75"/>
+        </svg>
+        <span>Task Nest</span>
+      </div>
+      <div class="grip" title="Drag to move">
+        <i></i><i></i><i></i><i></i><i></i><i></i>
+      </div>
+      <div class="win-btns">
+        <button class="icon-btn" id="btnMenu" title="Settings">
+          <svg viewBox="0 0 24 24"><circle cx="5" cy="12" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="19" cy="12" r="1.6"/></svg>
+        </button>
+        <button class="icon-btn" id="btnPin" title="Keep on top">
+          <svg viewBox="0 0 24 24"><path d="M15 3l6 6-3 1-4 4 .5 4.5L13 20l-4-4-5 5-1-1 5-5-4-4 1.5-1.5L10 10l4-4 1-3Z"/></svg>
+        </button>
+        <button class="icon-btn" id="btnMini" title="Collapse">
+          <svg viewBox="0 0 24 24"><path d="M5 12h14" stroke-width="2" stroke-linecap="round"/></svg>
+        </button>
+        <button class="icon-btn" id="btnClose" title="Hide (Alt+Shift+T to bring back)">
+          <svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18" stroke-width="2" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- category tabs -->
+    <nav class="tabs" id="tabs"></nav>
+
+    <div class="panes" id="panes">
+      <!-- list column -->
+      <section class="list-col">
+        <div class="today">
+          <div class="today-top">
+            <div class="today-icon" id="todayIcon">☀️</div>
+            <div>
+              <div class="today-title" id="greeting">Today</div>
+              <div class="today-sub" id="todaySub">0 of 0 tasks completed</div>
+            </div>
+          </div>
+          <div class="progress-row">
+            <div class="progress"><div class="progress-fill" id="progressFill"></div></div>
+            <span class="progress-pct" id="progressPct">0%</span>
+          </div>
+        </div>
+
+        <ul class="tasks" id="tasks"></ul>
+
+        <form class="add-task" id="addForm" autocomplete="off">
+          <span class="plus">+</span>
+          <input id="addInput" placeholder="Add a new task" maxlength="200" />
+          <kbd class="hint">↵</kbd>
+        </form>
+
+        <div class="plant-card" id="plantCard">
+          <div class="art" id="plantArt"></div>
+          <p class="plant-text" id="plantText">Small steps,<br/>big progress.</p>
+          <span class="heart">♡</span>
+        </div>
+      </section>
+
+      <!-- detail column -->
+      <section class="detail-col" id="detail">
+        <div class="detail-head">
+          <textarea id="dTitle" class="d-title" rows="1" placeholder="Untitled" maxlength="200"></textarea>
+          <button class="icon-btn" id="dMore" title="More">
+            <svg viewBox="0 0 24 24"><circle cx="5" cy="12" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="19" cy="12" r="1.6"/></svg>
+          </button>
+          <button class="icon-btn" id="dClose" title="Close (Esc)">
+            <svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18" stroke-width="2" stroke-linecap="round"/></svg>
+          </button>
+        </div>
+
+        <div class="detail-scroll">
+          <textarea id="dDesc" class="d-desc" rows="2" placeholder="Add a description…"></textarea>
+
+          <div class="props">
+            <div class="prop">
+              <span class="prop-label"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 3.5a8.5 8.5 0 0 1 0 17Z" fill="currentColor" stroke="none" opacity=".35"/></svg>Status</span>
+              <button class="prop-val" id="dStatus"></button>
+            </div>
+            <div class="prop">
+              <span class="prop-label"><svg viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15" rx="3"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg>Due date</span>
+              <button class="prop-val" id="dDateBtn"><span id="dDateLabel">Empty</span></button>
+            </div>
+            <div class="prop">
+              <span class="prop-label"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg>Time</span>
+              <button class="prop-val" id="dTimeBtn"><span id="dTimeLabel">Empty</span></button>
+            </div>
+            <div class="prop">
+              <span class="prop-label"><svg viewBox="0 0 24 24"><path d="M5 21V4M5 4h11l-2 4 2 4H5"/></svg>Priority</span>
+              <button class="prop-val" id="dPriority"></button>
+            </div>
+            <div class="prop prop-top">
+              <span class="prop-label"><svg viewBox="0 0 24 24"><path d="M3.5 12.5V4.5h8l9 9-8 8-9-9Z"/><circle cx="8" cy="9" r="1.2"/></svg>Tags</span>
+              <div class="tags" id="dTags">
+                <input class="tag-input" id="dTagInput" placeholder="+ Add" maxlength="24" />
+              </div>
+            </div>
+          </div>
+
+          <div class="section-head">
+            <span>Subtasks</span><span class="muted" id="dSubCount">0 / 0</span>
+          </div>
+          <ul class="subtasks" id="dSubs"></ul>
+          <form id="dSubForm" class="sub-add" autocomplete="off">
+            <span class="plus">+</span><input id="dSubInput" placeholder="Add a subtask" maxlength="200" />
+          </form>
+
+          <div class="section-head"><span>Notes</span></div>
+          <textarea id="dNotes" class="d-notes" rows="3" placeholder="Write anything… ✨"></textarea>
+
+          <div class="d-created muted" id="dCreated"></div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <div id="menuLayer"></div>
+  <div id="toast" class="toast"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
