@@ -1,11 +1,11 @@
 <div align="center">
 
-<img src=".github/assets/hero.png" width="640" alt="Task Nest — a category, a task list and task details, side by side" />
+<img src=".github/assets/hero.png" width="680" alt="Task Nest — a free, self-hosted Notion-style task manager widget for Windows, showing a task list and an open task's details side by side" />
 
 # 🌱 Task Nest
 
-**A cute, Notion-style task widget that lives on your desktop.**
-Free. Self-hosted. Yours to change.
+**A free, self-hosted, Notion-style task manager that lives as a cute little widget on your desktop.**
+No account. No subscription. No server. Just your tasks, on your machine.
 
 [![Download](https://img.shields.io/github/v/release/GovinduSasanka/task-nest?label=Download&style=for-the-badge&color=5DA271)](../../releases/latest)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue?style=for-the-badge)](LICENSE)
@@ -15,32 +15,28 @@ Free. Self-hosted. Yours to change.
 
 ---
 
-Task Nest sits quietly on the edge of your screen like a sticky note, not another browser tab you forget about. Pick a category, add a task, click it for the details — that's the whole idea.
+Most to-do apps live in a browser tab you forget about, or a mobile app you never open. **Task Nest sits right on your desktop like a sticky note** — a small, always-there widget with categories, task statuses, priorities and a Notion-style detail view, without the sign-ups, sync fees or bloat.
 
-## ✨ Why you might like it
+It's a **free and open-source alternative** to paid task widgets and desktop sticky-note apps, built for people who want a simple, self-hosted task manager that keeps their data local and doesn't try to upsell them.
 
-- **Lives on your desktop** — opens with Windows, tucks to the side, stays out of your way until you need it
-- **Notion-style detail view** — status, due date, time, priority, tags, subtasks and notes for every task
-- **Smart sorting** — To do → In progress, high priority first, completed tasks quietly collapse out of the way
-- **Categories you control** — add, rename, re-icon, and drag to reorder your lists
-- **A different little animated scene every day** — 7 cute footer designs that rotate daily
-- **It's just your files** — everything is saved locally to a plain JSON file on your machine, nothing is sent anywhere
+## ✨ Features
+
+- **Lives on your desktop** — opens with Windows, tucks to the side of your screen, stays out of the way until you click it
+- **Notion-style task details** — status, due date, time, priority, tags, subtasks and notes for every task
+- **Smart, automatic sorting** — To do → In progress, high priority first; completed tasks quietly collapse out of the way
+- **Categories you control** — add, rename, change the icon, and drag to reorder your lists
+- **A different little animated scene every day** — 7 cute footer illustrations that rotate daily
+- **Your data stays yours** — everything is saved locally to a plain JSON file on your machine; nothing is ever sent anywhere
 - **No account, no sign-up, no subscription** — download it, run it, that's it
-
-## 📸 See it in action
-
-<div align="center">
-<img src=".github/assets/hero.png" width="720" alt="Task Nest showing the task list and an open task's details" />
-</div>
 
 ## ⬇️ Install
 
 **[Download the latest installer](../../releases/latest)** → run `Task-Nest-Setup-x.x.x.exe` → done.
 
-- Installs for your user account (no admin needed)
+- Installs for your user account (no admin rights needed)
 - Adds a Desktop and Start Menu shortcut
 - Starts automatically when Windows starts (toggle any time from the **⋯** menu)
-- Windows SmartScreen may warn you because the app isn't code-signed — click **More info → Run anyway**
+- Windows SmartScreen may warn you because the app isn't code-signed yet — click **More info → Run anyway**
 
 Currently Windows only. macOS/Linux builds are welcome as a PR — the app is plain Electron, so it should package with minimal changes.
 
@@ -54,13 +50,13 @@ Currently Windows only. macOS/Linux builds are welcome as a PR — the app is pl
 | Add a task | Type in the box and press Enter — try `Gym 6pm` or `Pay rent !high` |
 | Open task details | Click a task |
 | Change status | Click the status pill, on the task or in its details |
-| Reorder tasks | They sort themselves — To do first, then In progress, High priority on top |
+| Reorder tasks | They sort themselves — To do first, then In progress, high priority on top |
 | See completed tasks | Click **Completed** at the bottom of a list |
 | Move the widget | Drag the top bar |
 | Keep it on top of other windows | Click the pin 📌 |
 | Show / hide | **Alt + Shift + T**, or click the tray icon |
 
-## 🔒 Your data
+## 🔒 Your data, your machine
 
 Everything is saved to `%APPDATA%\Task Nest\tasknest.json` as you go — nothing leaves your machine.
 
@@ -70,7 +66,7 @@ Everything is saved to `%APPDATA%\Task Nest\tasknest.json` as you go — nothing
 
 ## 🛠️ Self-hosting / running from source
 
-Task Nest is just Electron + HTML/CSS/JS — no server, no build step to run it.
+Task Nest is just Electron + HTML/CSS/JS — no server, no build step required to run it.
 
 ```bash
 git clone https://github.com/GovinduSasanka/task-nest.git
@@ -85,7 +81,7 @@ To build your own installer:
 npm run dist        # → dist/Task-Nest-Setup-x.x.x.exe
 ```
 
-Make it your own — the code is short and readable on purpose. Fork it, re-theme it, add your own footer scenes, rip out anything you don't need.
+Make it your own — the code is short and readable on purpose. Fork it, re-theme it, add your own footer scenes, strip out anything you don't need.
 
 ## 🗺️ Roadmap
 
